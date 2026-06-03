@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="policedata"
+            type="com.mtech.rsrtcsc.model.request.PoliceApplicationModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context="com.mtech.rsrtcsc.ui.activity.capture.Police_Upload_Document">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#1D82D3">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="25dp"
+                        android:layout_gravity="left"
+                        android:textColor="@color/white"
+                        android:text="RFID Smart Card System"/>
+
+                    <ImageView
+                        android:id="@+id/ivHumberger"
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="right"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_home" />
+
+                </androidx.appcompat.widget.Toolbar>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_corner"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/doc_upload"
+                    android:textColor="#1D82D3"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="* Please Select Image size upto 2MB *"
+                    android:textColor="#ff0000"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <!--    <LinearLayout-->
+                <!--        android:layout_width="match_parent"-->
+                <!--        android:layout_height="wrap_content"-->
+                <!--        android:weightSum="2"-->
+                <!--        android:layout_marginTop="30dp"-->
+                <!--        android:layout_marginLeft="16dp"-->
+                <!--        android:layout_marginRight="16dp"-->
+                <!--        android:orientation="horizontal">-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:textColor="#000"
+                    android:text="@string/PhotoIDProof" />
+
+                <Spinner
+                    android:id="@+id/spinner_photo_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/gradient_spinner"
+                    android:padding="8dp" />
+
+                <ImageView
+                    android:id="@+id/ivOne"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/rounded_corner"
+                    android:visibility="gone" />
+
+
+                <!--                <ImageView-->
+                <!--                    android:id="@+id/ivOne"-->
+                <!--                    android:layout_width="200dp"-->
+                <!--                    android:layout_height="200dp"-->
+                <!--                    android:layout_gravity="center"-->
+                <!--                    android:visibility="gone" />-->
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/capture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/capture"
+                        tools:layout_editor_absoluteX="16dp" />
+
+                    <Button
+                        android:id="@+id/browse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/browse"
+                        tools:layout_editor_absoluteX="16dp" />
+
+                </LinearLayout>
+
+                <!--                <TextView-->
+                <!--                    android:id="@+id/text_view1"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginLeft="8dp"-->
+                <!--                    android:layout_marginTop="5dp"-->
+                <!--                    android:layout_marginRight="8dp"-->
+                <!--                    android:background="@drawable/rounded_corner"-->
+                <!--                    android:gravity="center"-->
+                <!--                    android:padding="10dp"-->
+                <!--                    android:text="Choose File"-->
+                <!--                    android:textColor="@color/black"-->
+                <!--                    android:textSize="18sp" />-->
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_Photo_no1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="8dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:padding="10dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tie_Photo_no1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:hint="@string/photoid_number"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                        android:maxLength="50"
+                        android:maxLines="1"
+                        android:text="@={policedata.photoIdno}"
+                        android:scrollHorizontally="true"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--        <Button-->
+                <!--            android:id="@+id/btn_select_doc"-->
+                <!--            android:layout_width="wrap_content"-->
+                <!--            android:layout_height="wrap_content"-->
+                <!--            android:text="Select Document"-->
+                <!--            android:layout_weight="1"-->
+                <!--            android:gravity="center"-->
+                <!--            android:textSize="18sp"/>-->
+
+                <!--    </LinearLayout>-->
+
+                <!--    <LinearLayout-->
+                <!--        android:layout_width="match_parent"-->
+                <!--        android:layout_height="wrap_content"-->
+                <!--        android:weightSum="2"-->
+                <!--        android:layout_marginTop="10dp"-->
+                <!--        android:layout_marginLeft="16dp"-->
+                <!--        android:layout_marginRight="16dp"-->
+                <!--        android:orientation="horizontal">-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:textColor="#000"
+                    android:text="@string/con1" />
+
+                <Spinner
+                    android:id="@+id/spinner_concession"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="8dp"
+                    android:autofillHints="username"
+                    android:background="@drawable/gradient_spinner"
+                    android:padding="8dp" />
+
+
+                <ImageView
+                    android:id="@+id/ivTwo"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/rounded_corner"
+                    android:visibility="gone" />
+
+                <!--                <ImageView-->
+                <!--                    android:id="@+id/ivTwo"-->
+                <!--                    android:layout_width="200dp"-->
+                <!--                    android:layout_height="200dp"-->
+                <!--                    android:layout_gravity="center"-->
+                <!--                    android:visibility="gone" />-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/capture1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/capture"
+                        tools:layout_editor_absoluteX="16dp" />
+
+                    <Button
+                        android:id="@+id/browse1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/browse"
+                        tools:layout_editor_absoluteX="16dp" />
+
+                </LinearLayout>
+
+
+                <!--                <TextView-->
+                <!--                    android:id="@+id/text_view2"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginLeft="8dp"-->
+                <!--                    android:layout_marginTop="5dp"-->
+                <!--                    android:layout_marginRight="8dp"-->
+                <!--                    android:background="@drawable/rounded_corner"-->
+                <!--                    android:gravity="center"-->
+                <!--                    android:padding="10dp"-->
+                <!--                    android:text="Choose File"-->
+                <!--                    android:textColor="@color/black"-->
+                <!--                    android:textSize="18sp" />-->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_photo_no2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="8dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:padding="10dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tie_photo_no2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:ems="10"
+                        android:hint="@string/document_number"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                        android:maxLength="50"
+                        android:maxLines="1"
+                        android:text="@={policedata.conAppDocProofNo}"
+                        android:scrollHorizontally="true"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_salary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:textColor="#000"
+                        android:text="@string/SalarySlip" />
+
+                    <Spinner
+                        android:id="@+id/spinner_salarySlip"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="8dp"
+                        android:background="@drawable/gradient_spinner"
+                        android:padding="8dp" />
+
+                    <ImageView
+                        android:id="@+id/img_salarySlip"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:visibility="gone"
+                        android:background="@drawable/rounded_corner"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/capture_salarySlip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="16dp"
+                            android:text="@string/capture"
+                            tools:layout_editor_absoluteX="16dp" />
+
+                        <Button
+                            android:id="@+id/browse_salarySlip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="16dp"
+                            android:text="@string/browse"
+                            tools:layout_editor_absoluteX="16dp" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_salarySlip"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="8dp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:padding="10dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tie_salarySlip"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:ems="10"
+                            android:hint="@string/document_number"
+                            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+                            android:maxLength="50"
+                            android:maxLines="1"
+                            android:text="@={policedata.addressProofNo}"
+                            android:scrollHorizontally="true"
+                            android:textSize="14sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <Button
+                        android:id="@+id/btn_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="BACK"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/btn_register"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Register"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/btn_clear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Clear"
+                        android:textSize="16sp" />
+
+                    <!--    </LinearLayout>-->
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--    <ProgressBar-->
+            <!--        android:id="@+id/simpleProgressBar"-->
+            <!--        android:layout_width="wrap_content"-->
+            <!--        android:layout_centerInParent="true"-->
+            <!--        android:visibility="gone"-->
+            <!--        android:layout_height="wrap_content" />-->
+
+        </RelativeLayout>
+    </ScrollView>
+</layout>

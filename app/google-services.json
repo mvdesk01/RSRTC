@@ -1,0 +1,92 @@
+{
+  "project_info": {
+    "project_number": "881924936947",
+    "project_id": "rsrtc-5f6a8",
+    "storage_bucket": "rsrtc-5f6a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881924936947:android:a142df2ebce39e0dd79386",
+        "android_client_info": {
+          "package_name": "com.mtech.rsrtcs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "881924936947-8ggil4eqlor94beqc9hpbl7s6k9l026d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mtech.rsrtcs",
+            "certificate_hash": "5e15ed654b563e3f58eeadb78c00ee11c8675946"
+          }
+        },
+        {
+          "client_id": "881924936947-a3ja6euaqurcjgrrh7s6hkj5nt8kjj3d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mtech.rsrtcs",
+            "certificate_hash": "18302deee9de15f1f7171bc6077bd7f332d2017a"
+          }
+        },
+        {
+          "client_id": "881924936947-cka8u4l8uv6sktt8aqh7mjdh8vqrevbk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mtech.rsrtcs",
+            "certificate_hash": "a1dab6285926f7b46330ac8513c2de99bb36cfd8"
+          }
+        },
+        {
+          "client_id": "881924936947-59bvms6donaf5ltb41l3ppsrois8qba7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVV-Nox6gorl29gkwSx99JGn-Y_QWIZVk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "881924936947-59bvms6donaf5ltb41l3ppsrois8qba7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881924936947:android:eb37a0f9db4a6810d79386",
+        "android_client_info": {
+          "package_name": "com.mtech.rsrtcsc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "881924936947-59bvms6donaf5ltb41l3ppsrois8qba7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVV-Nox6gorl29gkwSx99JGn-Y_QWIZVk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "881924936947-59bvms6donaf5ltb41l3ppsrois8qba7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

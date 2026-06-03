@@ -1,0 +1,125 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    compileSdkVersion 35
+//    buildToolsVersion "30.0.3"
+    namespace 'com.mtech.rsrtcsc'
+
+    defaultConfig {
+        applicationId "com.mtech.rsrtcsc"
+        minSdkVersion 21
+        targetSdkVersion 35
+        multiDexEnabled true
+        versionCode 22
+        versionName "1.0.12"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            enableUnitTestCoverage false
+            enableAndroidTestCoverage false
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            enableUnitTestCoverage true
+            enableAndroidTestCoverage true
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+    packagingOptions {
+        exclude 'META-INF/NOTICE.md'
+        exclude 'META-INF/LICENSE.md'
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.drawerlayout:drawerlayout:1.1.1'
+    implementation 'androidx.core:core-ktx:1.12.0' // or latest
+    implementation "androidx.activity:activity:1.9.0"
+
+    // play store app update
+    implementation "com.google.android.play:app-update:2.1.0"
+    implementation "com.google.android.play:app-update-ktx:2.1.0"
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
+    implementation 'com.google.android.gms:play-services-gcm:17.0.0'
+    implementation 'com.google.firebase:firebase-appcheck:18.0.0'
+    implementation 'com.google.firebase:firebase-appcheck-playintegrity:18.0.0'
+
+
+    // Testing
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    // Volley for HTTP requests
+    implementation 'com.android.volley:volley:1.2.1'
+
+// Apache HttpClient
+    implementation 'org.apache.httpcomponents:httpcore:4.4.15'
+
+    // AndroidX CardView
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    // jTDS SQL Server Driver
+    implementation files('libs/jtds-1.3.1.jar')
+
+    // Country Code Picker
+    implementation 'com.hbb20:ccp:2.7.0'
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation files('../libs/BillDeskSDK_v2.1.3.aar')
+
+    // Firebase BOM (to manage Firebase SDK versions)
+    implementation platform('com.google.firebase:firebase-bom:32.3.1')
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.android.gms:play-services-safetynet:18.0.1'
+    implementation 'com.google.firebase:firebase-messaging:23.1.1'
+    implementation 'com.google.firebase:firebase-storage:20.2.0'
+    implementation 'com.google.android.gms:play-services-auth:20.7.0'
+    implementation 'com.google.android.recaptcha:recaptcha:18.4.0'
+    implementation 'com.google.android.play:integrity:1.4.0'    // AndroidX Browser
+    implementation 'androidx.browser:browser:1.5.0'
+    // Firebase Protolite
+    implementation 'com.google.firebase:protolite-well-known-types:18.0.0'
+
+
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.6'
+
+    // Circle Image View
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //QR code
+    implementation("com.journeyapps:zxing-android-embedded:4.3.0")
+
+    //smtp
+    implementation 'com.sun.mail:android-mail:1.6.7'
+    implementation 'com.sun.mail:android-activation:1.6.7'
+}

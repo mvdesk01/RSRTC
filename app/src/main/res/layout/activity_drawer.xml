@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clDrawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/tvprofile_image"
+                    android:src="@drawable/download"
+                    android:layout_centerInParent= "true"
+                    android:layout_width="96dp"
+                    android:padding="10dp"
+                    android:layout_height="96dp"/>
+
+                <TextView
+                    android:id="@+id/tvusername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginTop="45dp"
+                    android:hint="USER NAME"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#B6B2B4"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="0dp"/>
+
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="120dp"
+            android:weightSum="10">
+
+            <TextView
+                android:id="@+id/tvprofile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textSize="17dp"
+                android:layout_marginLeft="16dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="24dp"
+                android:text="Profile "
+                app:layout_constraintEnd_toEndOf="@+id/tvRechargeCard"
+                app:layout_constraintStart_toStartOf="@+id/tvRechargeCard"
+                app:layout_constraintTop_toBottomOf="@+id/tvReport" />
+
+            <TextView
+                android:id="@+id/tvsmartcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:padding="10dp"
+                android:textSize="17dp"
+                android:textColor="@color/black"
+                android:text="Apply Smart Card"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvpolicesmartcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:padding="10dp"
+                android:textSize="17dp"
+                android:textColor="@color/black"
+                android:text="Apply Police Smart Card"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tvvirtualcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:padding="10dp"
+                android:textSize="17dp"
+                android:textColor="@color/black"
+                android:text="Virtual Card"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvRechargeCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:padding="10dp"
+                android:textSize="17dp"
+                android:textColor="@color/black"
+                android:text="Recharge Card"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tvReport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Report "
+                android:layout_marginLeft="16dp"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                app:layout_constraintEnd_toEndOf="@+id/tvLogout"
+                app:layout_constraintStart_toStartOf="@+id/tvLogout"
+                app:layout_constraintTop_toBottomOf="@+id/tvRechargeCard" />
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:padding="10dp"
+                android:textSize="17dp"
+                android:onClick="onClick"
+                android:textColor="@color/black"
+                android:text="Online Registration Status"
+                app:layout_constraintEnd_toEndOf="@+id/tvReport"
+                app:layout_constraintStart_toStartOf="@+id/tvC"
+                app:layout_constraintTop_toBottomOf="@+id/tvLogout" />
+            <TextView
+                android:id="@+id/tvRecharge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:padding="10dp"
+                android:textSize="17dp"
+                android:onClick="onClick"
+                android:visibility="gone"
+                android:textColor="@color/black"
+                android:text="Recharge"
+                app:layout_constraintEnd_toEndOf="@+id/tvReport"
+                app:layout_constraintStart_toStartOf="@+id/tvC"
+                app:layout_constraintTop_toBottomOf="@+id/tvLogout" />
+
+            <TextView
+                android:id="@+id/tvcontact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textSize="17dp"
+                android:layout_marginLeft="16dp"
+                android:textColor="@color/black"
+                android:text="Contact Us"
+                app:layout_constraintEnd_toEndOf="@+id/tvRechargeCard"
+                app:layout_constraintStart_toStartOf="@+id/tvRechargeCard"
+                app:layout_constraintTop_toBottomOf="@+id/tvReport" />
+
+            <TextView
+                android:id="@+id/tvLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textSize="17dp"
+                android:layout_marginLeft="16dp"
+                android:textColor="@color/black"
+                android:text="Logout "
+                app:layout_constraintEnd_toEndOf="@+id/tvRechargeCard"
+                app:layout_constraintStart_toStartOf="@+id/tvRechargeCard"
+                app:layout_constraintTop_toBottomOf="@+id/tvReport" />
+
+        </LinearLayout>
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
