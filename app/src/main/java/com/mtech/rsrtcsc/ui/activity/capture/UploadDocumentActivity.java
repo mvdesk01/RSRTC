@@ -233,6 +233,98 @@ public class UploadDocumentActivity extends BaseActivity<ActivityUploadDocuments
 
         try {
             switch (requestCode) {
+                case PROOF_ID_CODE_PICK:
+                    if (data != null && data.getData() != null) {
+
+                        Uri uri = data.getData();
+
+                        if (isGifFile(uri)) {
+                            Toast.makeText(this,
+                                    "GIF files are not allowed. Please select JPG, JPEG or PNG image.",
+                                    Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        Bitmap bitmap = ImageUtil.getBitmapFromUri(this, uri);
+                        loadImage(bitmap);
+                        binding.ivOne.setVisibility(View.VISIBLE);
+                    }
+                    break;
+
+                case CONCESSION_CODE_PICK:
+                    if (data != null && data.getData() != null) {
+
+                        Uri uri = data.getData();
+
+                        if (isGifFile(uri)) {
+                            Toast.makeText(this,
+                                    "GIF files are not allowed. Please select JPG, JPEG or PNG image.",
+                                    Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        Bitmap bitmap = ImageUtil.getBitmapFromUri(this, uri);
+                        loadImage1(bitmap);
+                        binding.ivTwo.setVisibility(View.VISIBLE);
+                    }
+                    break;
+
+                case CONCESSION_CODE_PICK1:
+                    if (data != null && data.getData() != null) {
+
+                        Uri uri = data.getData();
+
+                        if (isGifFile(uri)) {
+                            Toast.makeText(this,
+                                    "GIF files are not allowed. Please select JPG, JPEG or PNG image.",
+                                    Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        Bitmap bitmap = ImageUtil.getBitmapFromUri(this, uri);
+                        loadImage4(bitmap);
+                        binding.ivFour.setVisibility(View.VISIBLE);
+                    }
+                    break;
+
+                case CONCESSION_CODE_PICK2:
+                    if (data != null && data.getData() != null) {
+
+                        Uri uri = data.getData();
+
+                        if (isGifFile(uri)) {
+                            Toast.makeText(this,
+                                    "GIF files are not allowed. Please select JPG, JPEG or PNG image.",
+                                    Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        Bitmap bitmap = ImageUtil.getBitmapFromUri(this, uri);
+                        loadImage5(bitmap);
+                        binding.ivFive.setVisibility(View.VISIBLE);
+                    }
+                    break;
+
+                case ADDRESS_PROOF_CODE_PICK:
+                    if (data != null && data.getData() != null) {
+
+                        Uri uri = data.getData();
+
+                        if (isGifFile(uri)) {
+                            Toast.makeText(this,
+                                    "GIF files are not allowed. Please select JPG, JPEG or PNG image.",
+                                    Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        Bitmap bitmap = ImageUtil.getBitmapFromUri(this, uri);
+                        loadImage2(bitmap);
+                        binding.ivThree.setVisibility(View.VISIBLE);
+                    }
+                    break;
+
+
+
                 case PROOF_ID_CODE:
                     if (currentPhotoPath != null) {
                         Bitmap bitmap = ImageUtil.getBitmapFromPath(currentPhotoPath, 1024, 1024);
@@ -243,14 +335,14 @@ public class UploadDocumentActivity extends BaseActivity<ActivityUploadDocuments
                     }
                     break;
 
-                case PROOF_ID_CODE_PICK:
-                    if (data != null) {
-                        Bitmap bitmap = ImageUtil.getBitmapFromUri(this, data.getData());
-//                        bitmap = rotateIfRequired(bitmap, data.getData());
-                        loadImage(bitmap);
-                        binding.ivOne.setVisibility(View.VISIBLE);
-                    }
-                    break;
+//                case PROOF_ID_CODE_PICK:
+//                    if (data != null) {
+//                        Bitmap bitmap = ImageUtil.getBitmapFromUri(this, data.getData());
+////                        bitmap = rotateIfRequired(bitmap, data.getData());
+//                        loadImage(bitmap);
+//                        binding.ivOne.setVisibility(View.VISIBLE);
+//                    }
+//                    break;
 
                 case CONCESSION_CODE:
                     if (currentPhotoPath != null) {
@@ -262,14 +354,14 @@ public class UploadDocumentActivity extends BaseActivity<ActivityUploadDocuments
                     }
                     break;
 
-                case CONCESSION_CODE_PICK:
-                    if (data != null) {
-                        Bitmap bitmap = ImageUtil.getBitmapFromUri(this, data.getData());
-//                        bitmap = rotateIfRequired(bitmap, data.getData());
-                        loadImage1(bitmap);
-                        binding.ivTwo.setVisibility(View.VISIBLE);
-                    }
-                    break;
+//                case CONCESSION_CODE_PICK:
+//                    if (data != null) {
+//                        Bitmap bitmap = ImageUtil.getBitmapFromUri(this, data.getData());
+////                        bitmap = rotateIfRequired(bitmap, data.getData());
+//                        loadImage1(bitmap);
+//                        binding.ivTwo.setVisibility(View.VISIBLE);
+//                    }
+//                    break;
 
                 case CONCESSION_CODE1:
                     if (currentPhotoPath != null) {
@@ -281,14 +373,14 @@ public class UploadDocumentActivity extends BaseActivity<ActivityUploadDocuments
                     }
                     break;
 
-                case CONCESSION_CODE_PICK1:
-                    if (data != null) {
-                        Bitmap bitmap = ImageUtil.getBitmapFromUri(this, data.getData());
-//                        bitmap = rotateIfRequired(bitmap, data.getData());
-                        loadImage4(bitmap);
-                        binding.ivFour.setVisibility(View.VISIBLE);
-                    }
-                    break;
+//                case CONCESSION_CODE_PICK1:
+//                    if (data != null) {
+//                        Bitmap bitmap = ImageUtil.getBitmapFromUri(this, data.getData());
+////                        bitmap = rotateIfRequired(bitmap, data.getData());
+//                        loadImage4(bitmap);
+//                        binding.ivFour.setVisibility(View.VISIBLE);
+//                    }
+//                    break;
 
                 case CONCESSION_CODE2:
                     if (currentPhotoPath != null) {
@@ -300,14 +392,14 @@ public class UploadDocumentActivity extends BaseActivity<ActivityUploadDocuments
                     }
                     break;
 
-                case CONCESSION_CODE_PICK2:
-                    if (data != null) {
-                        Bitmap bitmap = ImageUtil.getBitmapFromUri(this, data.getData());
-//                        bitmap = rotateIfRequired(bitmap, data.getData());
-                        loadImage5(bitmap);
-                        binding.ivFive.setVisibility(View.VISIBLE);
-                    }
-                    break;
+//                case CONCESSION_CODE_PICK2:
+//                    if (data != null) {
+//                        Bitmap bitmap = ImageUtil.getBitmapFromUri(this, data.getData());
+////                        bitmap = rotateIfRequired(bitmap, data.getData());
+//                        loadImage5(bitmap);
+//                        binding.ivFive.setVisibility(View.VISIBLE);
+//                    }
+//                    break;
 
                 case ADDRESS_PROOF_CODE:
                     if (currentPhotoPath != null) {
@@ -319,14 +411,14 @@ public class UploadDocumentActivity extends BaseActivity<ActivityUploadDocuments
                     }
                     break;
 
-                case ADDRESS_PROOF_CODE_PICK:
-                    if (data != null) {
-                        Bitmap bitmap = ImageUtil.getBitmapFromUri(this, data.getData());
-//                        bitmap = rotateIfRequired(bitmap, data.getData());
-                        loadImage2(bitmap);
-                        binding.ivThree.setVisibility(View.VISIBLE);
-                    }
-                    break;
+//                case ADDRESS_PROOF_CODE_PICK:
+//                    if (data != null) {
+//                        Bitmap bitmap = ImageUtil.getBitmapFromUri(this, data.getData());
+////                        bitmap = rotateIfRequired(bitmap, data.getData());
+//                        loadImage2(bitmap);
+//                        binding.ivThree.setVisibility(View.VISIBLE);
+//                    }
+//                    break;
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -764,6 +856,17 @@ public class UploadDocumentActivity extends BaseActivity<ActivityUploadDocuments
             return null;
         }
     }
+
+    private boolean isGifFile(Uri uri) {
+        String mimeType = getContentResolver().getType(uri);
+
+        if (mimeType != null && mimeType.equalsIgnoreCase("image/gif")) {
+            return true;
+        }
+
+        String path = uri.toString().toLowerCase();
+        return path.endsWith(".gif");
+    }
     private Bitmap compressBitmap(Bitmap original) {
         // Step 1: Resize dimensions
         int maxWidth = 1024;
@@ -957,20 +1060,3 @@ public class UploadDocumentActivity extends BaseActivity<ActivityUploadDocuments
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
