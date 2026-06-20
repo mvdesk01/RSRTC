@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
 import android.view.View;
@@ -167,25 +168,23 @@ public class Police_Upload_Document extends BaseActivity<ActivityPoliceUploadDoc
 
 
     private boolean checkPermission(int requestCode) {
-        boolean read;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            read = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES) == PackageManager.PERMISSION_GRANTED;
-        } else {
-            read = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
+
+        boolean cameraPermission =
+                ContextCompat.checkSelfPermission(
+                        this,
+                        Manifest.permission.CAMERA)
+                        == PackageManager.PERMISSION_GRANTED;
+
+        if (!cameraPermission) {
+            ActivityCompat.requestPermissions(
+                    this,
+                    new String[]{Manifest.permission.CAMERA},
+                    requestCode);
+
+            return false;
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            ActivityCompat.requestPermissions(this, new String[]{
-                    Manifest.permission.CAMERA,
-                    Manifest.permission.READ_MEDIA_IMAGES
-            }, requestCode);
-        } else {
-            ActivityCompat.requestPermissions(this, new String[]{
-                    Manifest.permission.CAMERA,
-                    Manifest.permission.READ_EXTERNAL_STORAGE
-            }, requestCode);
-        }
-        return  read;
+        return true;
     }
 
     @Override
@@ -208,9 +207,15 @@ public class Police_Upload_Document extends BaseActivity<ActivityPoliceUploadDoc
                         this.recreate();
 //                        startNewActivity(UploadDocumentActivity.class);
                     }else{
-                        loadImage(ImageUtil.getBitmapFromUri(this,data.getData()));
+                        Uri uri = data.getData();
+                        if (isGifFile(uri)) {
+                            Toast.makeText(this,
+                                    "GIF files are not allowed. Please select JPG, JPEG or PNG image.",
+                                    Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        loadImage(ImageUtil.getBitmapFromUri(this, uri));
                         binding.ivOne.setVisibility(View.VISIBLE);
-//                        Toast.makeText(Police_Upload_Document.this, "Photo Upload successfully", Toast.LENGTH_SHORT).show();
                     }
                 } catch (IOException e)
                 { e.printStackTrace();
@@ -233,9 +238,17 @@ public class Police_Upload_Document extends BaseActivity<ActivityPoliceUploadDoc
                     if(resultCode == 0){
                         this.recreate();
                     }else{
-                        loadImage1(ImageUtil.getBitmapFromUri(this,data.getData()));
+                        Uri uri = data.getData();
+
+                        if (isGifFile(uri)) {
+                            Toast.makeText(this,
+                                    "GIF files are not allowed. Please select JPG, JPEG or PNG image.",
+                                    Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        loadImage1(ImageUtil.getBitmapFromUri(this, uri));
                         binding.ivTwo.setVisibility(View.VISIBLE);
-//                        Toast.makeText(Police_Upload_Document.this, "Photo Upload successfully", Toast.LENGTH_SHORT).show();
                     }
                 } catch (IOException e)
                 { e.printStackTrace();
@@ -258,14 +271,33 @@ public class Police_Upload_Document extends BaseActivity<ActivityPoliceUploadDoc
                     if(resultCode == 0){
                         this.recreate();
                     }else{
-                        loadImage5(ImageUtil.getBitmapFromUri(this,data.getData()));
+                        Uri uri = data.getData();
+
+                        if (isGifFile(uri)) {
+                            Toast.makeText(this,
+                                    "GIF files are not allowed. Please select JPG, JPEG or PNG image.",
+                                    Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        loadImage5(ImageUtil.getBitmapFromUri(this, uri));
                         binding.imgSalarySlip.setVisibility(View.VISIBLE);
-//                        Toast.makeText(Police_Upload_Document.this, "Photo Upload successfully", Toast.LENGTH_SHORT).show();
                     }
                 } catch (IOException e)
                 { e.printStackTrace();
                 }break;
         }
+    }
+
+    private boolean isGifFile(Uri uri) {
+        String mimeType = getContentResolver().getType(uri);
+
+        if (mimeType != null && mimeType.equalsIgnoreCase("image/gif")) {
+            return true;
+        }
+
+        String path = uri.toString().toLowerCase();
+        return path.endsWith(".gif");
     }
 
     public static Bitmap resizeImage(Bitmap realImage, float maxImageSize, boolean filter) {

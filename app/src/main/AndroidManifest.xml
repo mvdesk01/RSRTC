@@ -13,8 +13,8 @@
     <uses-permission android:name="android.permission.CAMERA" />
 
     <!-- For media access based on Android version -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32"/>
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+<!--    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32"/>-->
+<!--    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />-->
 
     <!-- Location and others (commented/unnecessary for image capture) -->
     <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->

@@ -787,26 +787,25 @@ public class UploadDocumentActivity extends BaseActivity<ActivityUploadDocuments
         }
     }
     private boolean checkPermission(int requestCode) {
-        boolean read;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            read = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES) == PackageManager.PERMISSION_GRANTED;
-        } else {
-            read = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
+
+        boolean cameraPermission =
+                ContextCompat.checkSelfPermission(
+                        this,
+                        Manifest.permission.CAMERA)
+                        == PackageManager.PERMISSION_GRANTED;
+
+        if (!cameraPermission) {
+            ActivityCompat.requestPermissions(
+                    this,
+                    new String[]{Manifest.permission.CAMERA},
+                    requestCode);
+
+            return false;
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            ActivityCompat.requestPermissions(this, new String[]{
-                    Manifest.permission.CAMERA,
-                    Manifest.permission.READ_MEDIA_IMAGES
-            }, requestCode);
-        } else {
-            ActivityCompat.requestPermissions(this, new String[]{
-                    Manifest.permission.CAMERA,
-                    Manifest.permission.READ_EXTERNAL_STORAGE
-            }, requestCode);
-        }
-        return  read;
+        return true;
     }
+
     private Bitmap rotateIfRequired(Bitmap bitmap, Uri selectedImage) throws IOException {
         InputStream input = getContentResolver().openInputStream(selectedImage);
         ExifInterface ei;
