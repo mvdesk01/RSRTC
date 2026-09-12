@@ -162,9 +162,10 @@ public class SignupActivity extends BaseActivity<ActivitySignupBinding> implemen
 
                     apiInterface.GetOTP(getOtpModel).enqueue(new Callback<AuthModel>() {
                         @Override
-                        public void onResponse(Call<AuthModel> call, Response<AuthModel> response) {
+                        public void onResponse(@NonNull Call<AuthModel> call, Response<AuthModel> response) {
                             if(response.isSuccessful()){
                                 Toast.makeText(SignupActivity.this, response.body().getMsg(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignupActivity.this, "Check OTP on email: "+email, Toast.LENGTH_SHORT).show();
                             } else {
                                 dismissLoadingDialog();
                                 showSnackBar(binding.getRoot(), "Error!! try again later");

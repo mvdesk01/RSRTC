@@ -4,17 +4,17 @@ plugins {
 }
 
 android {
-    compileSdkVersion 35
+    compileSdkVersion 36
 //    buildToolsVersion "30.0.3"
     namespace 'com.mtech.rsrtcsc'
 
     defaultConfig {
         applicationId "com.mtech.rsrtcsc"
         minSdkVersion 21
-        targetSdkVersion 35
+        targetSdkVersion 36
         multiDexEnabled true
-        versionCode 24
-        versionName "1.0.14"
+        versionCode 25
+        versionName "1.0.15"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
